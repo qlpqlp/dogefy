@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     // we get the current fiat value of Dogecoin to be able to convert your website prices to Doge
     $.getJSON("https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=" + fiat_currency, function(data){
-        localStorage.setItem('dogecoinValue', data["dogecoin"]["usd"]); // we store the value in local storage
+        localStorage.setItem('dogecoinValue', data["dogecoin"][fiat_currency]); // we store the value in local storage        
     }).fail(function( dat, textStatus, error ) {
         var err = textStatus + ", " + error;
         //alert("Much Sadness! Cant get current value of Dogecoin. " + err);
